@@ -2,7 +2,7 @@ import axios from "axios";
 import { useAuthStore } from "@/stores/useAuthStore";
 
 const api = axios.create({
-  baseURL: "http://localhost:8000/api", // ← change to your Django backend URL/port
+  baseURL: "http://127.0.0.1:8000/api", // ← change to your Django backend URL/port
   headers: {
     "Content-Type": "application/json",
   },
@@ -21,7 +21,7 @@ api.interceptors.request.use((config) => {
 
 export default api;
 
-// Auth API functions
+// Auth Helpers - aligned with standard SimpleJWT
 export const loginUser = async (credentials: {
   username: string;
   password: string;
@@ -32,7 +32,7 @@ export const loginUser = async (credentials: {
 
 export const registerUser = async (data: {
   username: string;
-  email: string;
+  email?: string;
   password: string;
 }) => {
   const response = await api.post("/register/", data); // adjust endpoint

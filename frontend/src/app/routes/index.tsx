@@ -27,8 +27,13 @@ const router = createBrowserRouter([
           {
             index: true,
             element: (
-              <div className="p-8">
-                Welcome to Dashboard! (You are logged in)
+              <div className="container max-auto p-6">
+                <h2 className="text-3xl font-bold mb-4">
+                  Welcome to ChatterBox Dashboard
+                </h2>
+                <p className="text-muted-foreground">
+                  You are successfully logged in. Next up: chat rooms!
+                </p>
               </div>
             ),
           },
